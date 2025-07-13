@@ -1,0 +1,27 @@
+Added 3 departments
+
+curl --location --request GET 'http://localhost:8080/api/departments'
+
+RESPONSE
+
+[
+    {
+        "id": 3,
+        "name": "BroadCast",
+        "creationDate": "2024-06-10",
+        "departmentHeadId": 102
+    },
+    {
+        "id": 4,
+        "name": "Transportation",
+        "creationDate": "2024-06-10",
+        "departmentHeadId": 103
+    },
+    {
+        "id": 5,
+        "name": "Research And Development",
+        "creationDate": "2024-06-10",
+        "departmentHeadId": 104
+    }
+]
+

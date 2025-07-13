@@ -1,0 +1,29 @@
+id,address,date_of_birth,department_id,joining_date,name,reporting_manager_id,role,salary,yearly_bonus_percentage
+52,"Bangalore, India",1998-05-10,3,2023-08-01,"Hima P",59,"Software Engineer",75000.00,10.50
+53,"Bangalore, India",1990-05-10,3,2023-08-01,"Jose Charley",59,"Specialist Engineer",75000.00,10.50
+54,"Bangalore, India",1996-05-10,3,2023-08-01,"Arjun KS",59,"Software Engineer",75000.00,10.50
+55,"Bangalore, India",1995-05-10,3,2023-08-01,"Archana Radhakrishnan",59,"Frontend Engineer",75000.00,10.50
+56,"Bangalore, India",1998-05-10,3,2023-08-01,"Amina Nizam",59,"Support Engineer",75000.00,10.50
+57,"Bangalore, India",1998-05-10,3,2023-08-01,"Thazneem P",59,"Support Engineer",75000.00,10.50
+58,"Bangalore, India",1998-05-17,3,2023-08-01,"Humaira P",59,"Software Engineer",75000.00,10.50
+59,"Bangalore, India",1998-05-17,3,2023-08-01,"Lekha Dayalan",60,Manager,75000.00,10.50
+60,"Bangalore, India",1980-05-17,3,2023-08-01,"Binu S Nair",61,"Delivery Manager",75000.00,10.50
+61,"Bangalore, India",1980-05-17,3,2023-08-01,"Faisal KMA",NULL,"Delivery Head",75000.00,10.50
+62,"Bangalore, India",1980-05-17,4,2023-08-01,"Lasitha Bai",NULL,"Delivery Head",75000.00,10.50
+63,"Bangalore, India",1982-05-17,4,2023-08-01,"Naresh Mudup",62,"Delivery Manager",75000.00,10.50
+64,USA,1986-05-17,4,2023-08-01,"Steve sheu",63,Manager,75000.00,10.50
+65,Chennai,1988-05-17,4,2023-08-01,"Vishnu K",64,Specialist,75000.00,10.50
+66,Chennai,1988-05-17,4,2023-08-01,"Hari M",64,"Software Engineer",75000.00,10.50
+67,Trivandrum,1988-05-17,4,2023-08-01,"Abhiram M",64,"Software Engineer",75000.00,10.50
+68,Trivandrum,1988-05-17,4,2023-08-01,"Rayyan Ali",64,"Software Engineer",75000.00,10.50
+69,Trivandrum,1988-05-17,4,2023-08-01,"Hashim C",64,"Software Engineer",75000.00,10.50
+70,Trivandrum,1980-05-17,5,2023-08-01,"Rajendra V",NULL,"Delivery Head",75000.00,10.50
+71,Trivandrum,1980-05-17,5,2023-08-01,"Sanjay G",70,"Delivery Manager",75000.00,10.50
+72,Trivandrum,1980-05-17,5,2023-08-01,"Ramesh K",71,Manager,75000.00,10.50
+73,Trivandrum,1980-05-17,5,2023-08-01,"Chandini M",72,"Software Engineer",75000.00,10.50
+74,Trivandrum,1980-05-17,5,2023-08-01,"Merlin R",72,"Software Engineer",75000.00,10.50
+75,Trivandrum,1980-05-17,5,2023-08-01,"Subasini P",72,"Software Engineer",75000.00,10.50
+76,Trivandrum,1980-05-17,5,2023-08-01,"Nimmi Reji",72,"Software Engineer",75000.00,10.50
+77,Trivandrum,1980-05-17,5,2023-08-01,"Rahul P",72,"Software Engineer",75000.00,10.50
+78,Trivandrum,1980-05-17,5,2023-08-01,"Rijo K",72,"Software Engineer",75000.00,10.50
+79,Trivandrum,1980-05-17,5,2023-08-01,"Roona NM",72,"Software Engineer",75000.00,10.50
