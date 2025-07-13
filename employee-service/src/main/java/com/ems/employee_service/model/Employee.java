@@ -21,13 +21,8 @@ public class Employee {
     private String role;
     private LocalDate joiningDate;
     private BigDecimal yearlyBonusPercentage;
-
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
-
-    @ManyToOne
-    @JoinColumn(name = "reporting_manager_id")
-    private Employee reportingManager;
+    private Long departmentId;
+    @Column(nullable = true)
+    private Long reportingManagerId;
 
 }

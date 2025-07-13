@@ -14,9 +14,6 @@ public class Department {
     private Long id;
     private String name;
     private LocalDate creationDate;
-
-    @OneToOne
-    @JoinColumn(name = "department_head_id")
-    private Employee departmentHead;
+    private Long departmentHeadId;
 
 }

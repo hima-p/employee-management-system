@@ -10,7 +10,7 @@ import java.util.List;
 public interface DepartmentService {
 
     public Department createDepartment(Department dto);
-    public Department updateDepartment(Long id, DepartmentDto dto) ;
+    public Department updateDepartment(Long id, Department dto) ;
     public void deleteDepartment(Long id);
     public Page<Department> getAllDepartments(Pageable pageable) ;
     public Department getDepartmentWithEmployees(Long id);

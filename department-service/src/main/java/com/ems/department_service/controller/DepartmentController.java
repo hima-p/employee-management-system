@@ -22,4 +22,14 @@ public class DepartmentController {
         Department response = departmentService.createDepartment(request);
         return ResponseEntity.ok(response);
     }
+    @PutMapping(path = "/update/{id}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Department> updateDepartment(@PathVariable Long id, @RequestBody Department request) {
+        Department updated = departmentService.updateDepartment(id, request);
+        return ResponseEntity.ok(updated);
+    }
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity<String> deleteDepartment(@PathVariable Long id) {
+        departmentService.deleteDepartment(id);
+        return ResponseEntity.ok("Department deleted successfully");
+    }
 }

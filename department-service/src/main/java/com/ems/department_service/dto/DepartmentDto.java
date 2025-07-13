@@ -1,6 +1,4 @@
 package com.ems.department_service.dto;
-import com.ems.department_service.model.Employee;
-import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +9,6 @@ public class DepartmentDto {
         private Long id;
         private String name;
         private String creationDate;
-        private Employee departmentHead;
+        private Long departmentHeadId;
         private List<EmployeeLookUpDto> employees;
 }

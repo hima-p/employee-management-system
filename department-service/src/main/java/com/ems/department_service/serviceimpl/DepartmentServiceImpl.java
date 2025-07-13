@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,17 +22,38 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public Department createDepartment(Department request) {
-        return null;
+        if (request.getName() == null || request.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Department name is required");
+        }
+        if (request.getDepartmentHeadId() == null) {
+            throw new IllegalArgumentException("Department head ID is required");
+        }
+        // Optionally check if department head exists using EmployeeService
+        if (request.getCreationDate() == null) {
+            request.setCreationDate(java.time.LocalDate.now());
+        }
+        return departmentRepository.save(request);
+    }
+    @Override
+    public Department updateDepartment(Long id, Department updatedDepartment) {
+        Optional<Department> existing = departmentRepository.findById(id);
+        if (existing.isPresent()) {
+            Department department = existing.get();
+            department.setName(updatedDepartment.getName());
+            department.setCreationDate(updatedDepartment.getCreationDate());
+            department.setDepartmentHeadId(updatedDepartment.getDepartmentHeadId());
+            return departmentRepository.save(department);
+        } else {
+            throw new RuntimeException("Department not found with id: " + id);
+        }
     }
 
-    @Override
-    public Department updateDepartment(Long id, DepartmentDto dto) {
-        return null;
-    }
-
-    @Override
     public void deleteDepartment(Long id) {
-
+        if (departmentRepository.existsById(id)) {
+            departmentRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Cannot delete. Department not found with id: " + id);
+        }
     }
 
     @Override
