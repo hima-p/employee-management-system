@@ -10,5 +10,5 @@ public class DepartmentDto {
         private String name;
         private String creationDate;
         private Long departmentHeadId;
-        private List<EmployeeLookUpDto> employees;
+        private List<EmployeeDto> employees;
 }

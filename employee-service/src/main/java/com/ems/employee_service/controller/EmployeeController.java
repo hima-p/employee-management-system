@@ -55,5 +55,10 @@ public class EmployeeController {
             @RequestParam(defaultValue = "20") int size) {
         return ResponseEntity.ok(employeeService.getAllEmployeesPaged(page, size));
     }
+    @GetMapping("/by-department/{deptId}")
+    public ResponseEntity<List<Employee>> getEmployeesByDepartment(@PathVariable Long deptId) {
+        List<Employee> list = employeeService.getEmployeesByDepartment(deptId);
+        return ResponseEntity.ok(list);
+    }
     }
 

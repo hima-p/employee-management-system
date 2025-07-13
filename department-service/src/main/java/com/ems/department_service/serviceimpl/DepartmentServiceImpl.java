@@ -1,23 +1,29 @@
 package com.ems.department_service.serviceimpl;
 
+import com.ems.department_service.client.EmployeeClient;
 import com.ems.department_service.dto.DepartmentDto;
+import com.ems.department_service.dto.EmployeeDto;
 import com.ems.department_service.model.Department;
 import com.ems.department_service.repository.DepartmentRepository;
 import com.ems.department_service.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private EmployeeClient employeeClient;
 
 
     @Override
@@ -55,15 +61,37 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new RuntimeException("Cannot delete. Department not found with id: " + id);
         }
     }
-
     @Override
-    public Page<Department> getAllDepartments(Pageable pageable) {
-        return null;
+    public Department getDepartmentById(Long id) {
+        return departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department not found with ID: " + id));
     }
 
     @Override
-    public Department getDepartmentWithEmployees(Long id) {
-        return null;
+    public List<Department> getAllDepartments() {
+        return departmentRepository.findAll();
     }
+
+    @Override
+    public Page<Department> getAllDepartmentsPaged(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return departmentRepository.findAll(pageable);
+    }
+    @Override
+    public DepartmentDto getDepartmentWithEmployees(Long id) {
+            Department department = departmentRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Department not found"));
+
+            List<EmployeeDto> employees = employeeClient.getEmployeesByDepartment(id);
+
+            DepartmentDto dto = new DepartmentDto();
+            dto.setId(department.getId());
+            dto.setName(department.getName());
+            dto.setCreationDate(department.getCreationDate().toString());
+            dto.setDepartmentHeadId(department.getDepartmentHeadId());
+            dto.setEmployees(employees);
+
+            return dto;
+        }
 }
 

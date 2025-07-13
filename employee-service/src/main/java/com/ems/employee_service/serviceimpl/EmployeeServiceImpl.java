@@ -74,6 +74,10 @@ public class EmployeeServiceImpl implements EmployeeService{
                    .map(emp -> new EmployeeLookUpDto(emp.getId(), emp.getName()))
                    .collect(Collectors.toList());
     }
+       @Override
+       public List<Employee> getEmployeesByDepartment(Long deptId) {
+        return employeeRepository.findByDepartmentId(deptId);
+     }
 
 }
 

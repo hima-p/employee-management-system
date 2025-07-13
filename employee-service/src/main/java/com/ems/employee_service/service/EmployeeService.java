@@ -10,12 +10,13 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface EmployeeService {
-    public Employee createEmployee(Employee dto) ;
-    public Employee updateEmployee(Long id, Employee dto);
-    public void deleteEmployee(Long id);
+    Employee createEmployee(Employee dto) ;
+    Employee updateEmployee(Long id, Employee dto);
+    void deleteEmployee(Long id);
     Employee getEmployeeById(Long id);
     List<Employee> getAllEmployees();
     Page<Employee> getAllEmployeesPaged(int page, int size);
     List<EmployeeLookUpDto> getEmployeeNamesAndIds();
+    List<Employee> getEmployeesByDepartment(Long deptId);
 
 }
