@@ -6,9 +6,9 @@ employee service endpoint -> http://localhost:8081/api/employees
 Implemented microservice connectivity using Feign Client
 
 # pending tasks
-junit Testing
-api gateway implementation
-eureka server 
-Authorizations
+junit Testing,
+api gateway implementation,
+eureka server,
+authorizations,
 Frontend development
 
