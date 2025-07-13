@@ -1,6 +1,6 @@
 package com.ems.employee_service.controller;
 
-import com.ems.employee_service.dto.EmployeeDto;
+
 import com.ems.employee_service.dto.EmployeeLookUpDto;
 import com.ems.employee_service.model.Employee;
 import com.ems.employee_service.service.EmployeeService;
