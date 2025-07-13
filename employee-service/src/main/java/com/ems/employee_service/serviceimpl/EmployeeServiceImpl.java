@@ -6,11 +6,13 @@ import com.ems.employee_service.repository.EmployeeRepository;
 import com.ems.employee_service.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
@@ -43,7 +45,6 @@ public class EmployeeServiceImpl implements EmployeeService{
                 throw new RuntimeException("Employee not found with id: " + id);
             }
         }
-
         @Override
         public void deleteEmployee(Long id) {
             if (employeeRepository.existsById(id)) {
@@ -52,20 +53,27 @@ public class EmployeeServiceImpl implements EmployeeService{
                 throw new RuntimeException("Cannot delete. Employee not found with id: " + id);
             }
         }
+        @Override
+        public Employee getEmployeeById(Long id) {
+        return employeeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+        }
+        @Override
+        public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+        }
+       @Override
+       public Page<Employee> getAllEmployeesPaged(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return employeeRepository.findAll(pageable);
+       }
 
-    @Override
-    public void updateEmployeeDepartment(Long empId, Long deptId) {
-
+       @Override
+       public List<EmployeeLookUpDto> getEmployeeNamesAndIds() {
+           return employeeRepository.findAll().stream()
+                   .map(emp -> new EmployeeLookUpDto(emp.getId(), emp.getName()))
+                   .collect(Collectors.toList());
     }
 
-    @Override
-    public Page<Employee> getAllEmployees(Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public List<EmployeeLookUpDto> getEmployeeLookup() {
-        return List.of();
-    }
 }
 

@@ -13,7 +13,9 @@ public interface EmployeeService {
     public Employee createEmployee(Employee dto) ;
     public Employee updateEmployee(Long id, Employee dto);
     public void deleteEmployee(Long id);
-    public void updateEmployeeDepartment(Long empId, Long deptId) ;
-    public Page<Employee> getAllEmployees(Pageable pageable) ;
-    public List<EmployeeLookUpDto> getEmployeeLookup() ;
+    Employee getEmployeeById(Long id);
+    List<Employee> getAllEmployees();
+    Page<Employee> getAllEmployeesPaged(int page, int size);
+    List<EmployeeLookUpDto> getEmployeeNamesAndIds();
+
 }
